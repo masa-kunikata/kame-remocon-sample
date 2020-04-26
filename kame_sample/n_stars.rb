@@ -1,15 +1,15 @@
-COL_NUMS = 4
+COL_NUMS = 5
 
 def n_star(n)
-  row = n / COL_NUMS
-  col = n % COL_NUMS
+  row = (n / COL_NUMS).to_i
+  col = (n % COL_NUMS).to_i
   
   t = 360 / n
-  len = 16 / n
+  len = 80/n
 
   pen_up
-  move_to(col * 16, row * 16)
-  turn_left(90 + t)
+  move_to(col * 70-150, row * 50-230)
+  turn_left 90
 
   pen_down
   n.times do
@@ -19,11 +19,9 @@ def n_star(n)
     turn_left(2 * t)
   end
 
-  pen_up
-  move_to(col * 16, row * 16)
-  turn_right(90 - t)
+  turn_right 90
 end
 
-(5..16).each do |n|
+(5..39).each do |n|
   n_star(n)
 end
